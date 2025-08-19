@@ -52,28 +52,28 @@
 #     num.append(val)
 # print(num)
 
-# def largest(num):
-#     max_num=num[0]
-#     for i in num:
-#         if i>max_num:
-#             max_num=i
-#     return max_num
-#
-# num=list(map(int, input("Enter numbers seperated by space: ").split()))
-# print(num)
-# print(largest(num))
+def largest(num):
+    max_num=num[0]
+    for i in num:
+        if i>max_num:
+            max_num=i
+    return max_num
+
+num=list(map(int, input("Enter numbers seperated by space: ").split()))
+print(num)
+print(largest(num))
 
 #Problem 7: Count vowels in string
-# def count_vowels(text):
-#     vowels = "aeiouAEIOU"
-#     count = 0
-#     for char in text:
-#         if char in vowels:
-#             count += 1
-#     return count
-#
-# sentence = "Hello World"
-# print("Vowel count:", count_vowels(sentence))
+def count_vowels(text):
+    vowels = "aeiouAEIOU"
+    count = 0
+    for char in text:
+        if char in vowels:
+            count += 1
+    return count
+
+sentence = "Hello World"
+print("Vowel count:", count_vowels(sentence))
 
 
 #Problem 8: List comprehension for squares
