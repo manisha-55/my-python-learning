@@ -15,6 +15,8 @@ Car.wheels = 5
 print(c1.com, c1.mil, c1.wheels)
 print(c2.com, c2.mil, c2.wheels)
 
+
+################# Instance Method Type Example
 class Student:
     school = 'Telusko'
     def __init__(self, m1, m2, m3):
