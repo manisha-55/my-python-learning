@@ -36,3 +36,60 @@ print(t1.id, t1.status)
 print(repr(t1)) #dev view
 print(str(t1))  #user view
 
+# 3) Instance vs Class attributes; @classmethod & @staticmethod
+# Instance attribute → belongs to a specific object (created using self. inside __init__). Each object has its own copy.
+# Class attribute → shared across all objects of the class (defined directly in the class body, outside __init__).
+
+class Job:
+    counter = 0  # class attribute
+
+    def __init__(self, title):
+        self.title = title
+        Job.counter += 1
+
+    @classmethod
+    def from_dict(cls, d):
+        return cls(d["title"])
+
+    @staticmethod
+    def is_valid_title(title):
+        return isinstance(title, str) and len(title) > 0
+
+j = Job("Python Dev")
+k = Job.from_dict({"title": "Data Engineer"})
+print(Job.counter)
+print(Job.is_valid_title("SRE"))
+
+# @classmethod
+# Bound to the class itself, not the object.
+# First argument → cls (represents the class).
+# Can modify class attributes but not instance attributes directly.
+# Used when you want to create alternative constructors or work with class-level data.
+# @classmethod: first arg is the class (cls); great for alternative constructors or class-wide state.
+# @classmethod lets you update class-level data (like company) for all objects.
+
+class Employee:
+    company = "ABC Crop"
+    def __init__(self, name, salary):
+        self.name = name
+        self.salary = salary
+    @classmethod
+    def change_company(cls, new_company):
+        cls.company = new_company
+
+emp1 = Employee("Manisha", 50000)
+emp2 = Employee("Raj", 80000)
+#print(emp1.name, emp1.salary)
+print(emp1.company)
+print(emp2.company)
+Employee.change_company("XYZ Pvt Ltd")
+print(emp1.company)
+print(emp2.company)
+
+# @staticmethod: utility function living inside the class namespace.
+# @staticmethod
+# Doesn’t take self (instance) or cls (class).
+# Just a normal function inside a class.
+# Used when logic is related to the class but does not need access to class/instance data.
+
+
