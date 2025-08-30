@@ -42,7 +42,6 @@ print(str(t1))  #user view
 
 class Job:
     counter = 0  # class attribute
-
     def __init__(self, title):
         self.title = title
         Job.counter += 1
@@ -101,4 +100,26 @@ class Mathutil:
 print(Mathutil.__add__(5,6))
 print(Mathutil.is_even(5))
 
+# 4) Encapsulation: conventions, name-mangling, and @property
+# Python uses conventions:
+# public_attr → public
+# _protected_attr → internal (don’t use outside)
+# __private_attr → name-mangled to _Class__private_attr (discourages accidental access)
+# Use properties to add validation while keeping attribute-style access.
+
+class BankAcc:
+    def __init__(self, balance=0):
+        self._balance=0
+        self.balance = balance
+    @property
+    def balance(self):
+        return self._balance
+    @balance.setter
+    def balance(self, amount):
+        if amount<0:
+            raise ValueError("Balance cannot be -ve")
+        self._balance=amount
+acc = BankAcc(500)
+acc.balance+=300
+print(acc.balance)
 
