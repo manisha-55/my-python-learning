@@ -36,7 +36,7 @@ print(t1.id, t1.status)
 print(repr(t1)) #dev view
 print(str(t1))  #user view
 
-# 3) Instance vs Class attributes; @classmethod & @staticmethod
+# 3) Instance vs Class attributes;
 # Instance attribute → belongs to a specific object (created using self. inside __init__). Each object has its own copy.
 # Class attribute → shared across all objects of the class (defined directly in the class body, outside __init__).
 
@@ -60,7 +60,7 @@ k = Job.from_dict({"title": "Data Engineer"})
 print(Job.counter)
 print(Job.is_valid_title("SRE"))
 
-# @classmethod
+# 4) @classmethod
 # Bound to the class itself, not the object.
 # First argument → cls (represents the class).
 # Can modify class attributes but not instance attributes directly.
@@ -86,10 +86,19 @@ Employee.change_company("XYZ Pvt Ltd")
 print(emp1.company)
 print(emp2.company)
 
+# 5) @staticmethod
 # @staticmethod: utility function living inside the class namespace.
-# @staticmethod
 # Doesn’t take self (instance) or cls (class).
 # Just a normal function inside a class.
 # Used when logic is related to the class but does not need access to class/instance data.
+class Mathutil:
+    @staticmethod
+    def __add__(self, other):
+        return self+other
+    @staticmethod
+    def is_even(num):
+        return num%2==0
+print(Mathutil.__add__(5,6))
+print(Mathutil.is_even(5))
 
 
