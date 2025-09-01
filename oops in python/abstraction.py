@@ -42,3 +42,39 @@ print(c.fuel_type())
 b= Bike()
 print(b.max_speed())
 print(b.fuel_type())
+
+
+
+class Shape(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+    @abstractmethod
+    def perimeter(self):
+        pass
+
+class Rectangle(Shape):
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+
+    def area(self):
+        return self.length*self.width
+    def perimeter(self):
+        return 2*(self.length+self.width)
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+    def area(self):
+        return  3.14*(self.radius*self.radius)
+    def perimeter(self):
+        return (2*3.14*self.radius)
+
+r=Rectangle(3,4)
+print("area of rectangle:", r.area())
+print("perimeter of rectangle:",r.perimeter())
+
+c=Circle(4)
+print("area of circle:",c.area())
+print("perimeter of circle:",c.perimeter())
