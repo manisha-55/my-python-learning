@@ -13,7 +13,8 @@ for i in a:
 print("Even:",even, "Odd:",odd)
 
 # 2. Word Frequency Counter
-n= input("Enter a string: ")   #text = "python java python c java python"
+#n= input("Enter a string: ")   #text = "python java python c java python"
+n= "python java python c java python"
 word = n.split()
 dict ={}
 for i in word:
@@ -23,3 +24,11 @@ for i in word:
         dict[i]=1
 
 print(dict)
+
+# 4. Factorial (Normal & Recursion)
+num =5
+fact=1
+for i in range(1, num+1):
+    fact*=i
+
+print("Factorial of 5 is:",fact)
