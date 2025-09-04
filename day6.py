@@ -32,3 +32,11 @@ for i in range(1, num+1):
     fact*=i
 
 print("Factorial of 5 is:",fact)
+
+# Factorial using Recursion
+
+def factorial(num):
+    if num ==0 or num==1:
+        return 1
+    return num*factorial(num-1)
+print("Factorial using recrusion:", factorial(num))
