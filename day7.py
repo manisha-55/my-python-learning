@@ -27,3 +27,11 @@ else:
     print("no error")
 finally:
     print("end of thr program")
+
+######## 3. Raising Exceptions using raise
+# Use raise when you want to manually throw an error.
+x=int(input("enter a positive no: "))
+if(x<0):
+    raise ValueError("negative members not allowed0004")
+else:
+    print("num is positive")
