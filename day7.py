@@ -30,8 +30,21 @@ finally:
 
 ######## 3. Raising Exceptions using raise
 # Use raise when you want to manually throw an error.
-x=int(input("enter a positive no: "))
+x=int(input("enter a no: "))
 if(x<0):
     raise ValueError("negative members not allowed0004")
 else:
     print("num is positive")
+
+######## 4. Creating User-Defined Exception Classes
+# We can create custom exception types by inheriting from Exception.
+
+class NegativeNoError(Exception):
+    pass
+try:
+    n1=int(input("enter user num: "))
+    if n1<0:
+        raise NegativeNoError("Negative numbers are not allowed")
+    print("Num is:",n1)
+except NegativeNoError as e:
+    print(e)
